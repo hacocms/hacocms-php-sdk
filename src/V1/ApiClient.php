@@ -66,7 +66,7 @@ class ApiClient
             //'http_errors' => false,
 
             // https://docs.guzzlephp.org/en/stable/quickstart.html#query-string-parameters
-            'query' => $query,
+            'query' => $query ?: '',
         ]);
 
         $json = $response->getBody()->getContents();
