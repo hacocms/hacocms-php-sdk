@@ -3,11 +3,11 @@ namespace HacoCMS\V1;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 
-class ApiClient
+class HacoCMSApiClient
 {
-    private string $subdomain;
-    private string $accessToken;
-    private GuzzleHttpClient $httpClient;
+    private $subdomain;
+    private $accessToken;
+    private $httpClient;
 
     function __construct(string $subdomain, string $accessToken)
     {
