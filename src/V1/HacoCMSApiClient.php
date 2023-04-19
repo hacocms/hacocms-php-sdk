@@ -28,6 +28,16 @@ class HacoCMSApiClient
 
     /**
      * リスト形式APIのコール
+     * (dataのみ)
+     */
+    public function listData(string $endpoint, array $query = [])
+    {
+        $list = $this->list($endpoint, $query);
+        return !empty($list['data']) ? $list['data'] : [];
+    }
+
+    /**
+     * リスト形式APIのコール
      * (リスト内の単一コンテンツを取得する)
      */
     public function listSingleContent(string $endpoint, string $contentId, array $query = [])
