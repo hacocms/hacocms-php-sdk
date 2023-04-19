@@ -2,13 +2,13 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use HacoCMS\V1\ApiClient;
+use HacoCMS\V1\HacoCMSApiClient;
 
-final class ApiClientTest extends TestCase
+final class HacoCMSApiClientTest extends TestCase
 {
     public function testBuildApiUrl()
     {
-        $client = new ApiClient('subdomain', 'access token');
+        $client = new HacoCMSApiClient('subdomain', 'access token');
         $apiUrl = $client->buildApiUrl('test');
         $this->assertEquals($apiUrl, 'https://subdomain.hacocms.com/api/v1/test');
 
@@ -17,9 +17,9 @@ final class ApiClientTest extends TestCase
    }
 
     /**
-     * public function testApiClient()
+     * public function testHacoCMSApiClient()
      * {
-     *     $client = new ApiClient('subdomain', 'access token');
+     *     $client = new HacoCMSApiClient('subdomain', 'access token');
      *     $res = $client->list('endpoint');
      *     $this->assertNotNull($res);
      *
