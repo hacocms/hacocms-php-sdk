@@ -1,6 +1,7 @@
 # hacoCMS-php-sdk
 
-https://hacocms.com/
+* https://hacocms.com/
+* https://packagist.org/packages/hacocms/hacocms-php-sdk
 
 ## Install 
 
