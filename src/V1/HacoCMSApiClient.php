@@ -7,12 +7,14 @@ class HacoCMSApiClient
 {
     private $subdomain;
     private $accessToken;
+    private $projectDraftToken;
     private $httpClient;
 
-    function __construct(string $subdomain, string $accessToken)
+    function __construct(string $subdomain, string $accessToken, string $projectDraftToken = null)
     {
         $this->subdomain = $subdomain;
         $this->accessToken = $accessToken;
+        $this->projectDraftToken = $projectDraftToken;
         $this->httpClient = new GuzzleHttpClient();
     }
 
@@ -71,8 +73,14 @@ class HacoCMSApiClient
      */
     private function callApi(string $apiUrl, array $query)
     {
+        $headers = ['Authorization' => 'Bearer ' . $this->accessToken];
+
+        if ($this->projectDraftToken) {
+            $headers['Haco-Project-Draft-Token'] = $this->projectDraftToken;
+        }
+
         $response = $this->httpClient->request('GET', $apiUrl, [
-            'headers' => ['Authorization' => 'Bearer ' . $this->accessToken],
+            'headers' => $headers,
             //'http_errors' => false,
 
             // https://docs.guzzlephp.org/en/stable/quickstart.html#query-string-parameters

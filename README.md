@@ -42,7 +42,12 @@ $client = new HacoCMS\V1\HacoCMSApiClient('subdomain', 'access_token');
 $res = $client->single('endpoint');
 ```
 
+### Use Project-Draft-Token
+
+```php
+$client = new HacoCMS\V1\HacoCMSApiClient('subdomain', 'access_token', 'project-draft-token');
+```
+
 ## ライセンス
 
 MIT License
-
